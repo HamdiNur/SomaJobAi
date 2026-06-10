@@ -28,7 +28,7 @@ export default function App() {
     setLoading(true)
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/chat", {
+      const res = await axios.post("https://somajobai.onrender.com/chat", {
         session_id: SESSION_ID,
         message: userMsg
       })
@@ -53,7 +53,7 @@ export default function App() {
     formData.append("file", file)
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/upload-cv", formData, {
+      const res = await axios.post("https://somajobai.onrender.com/upload-cv", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       })
       setMessages(prev => [...prev, { role: "ai", text: res.data.reply }])
